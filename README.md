@@ -13,7 +13,7 @@ I use this table to track which patterns have been successfully implemented and 
 | ✅ | 4 | **Simple Factory** | PizzaStore (Idiom) | Creational |
 | ✅ | 5 | **Factory Method** | PizzaStore (Regional) | Creational |
 | ✅ | 6 | **Abstract Factory** | PizzaStore (Ingredients) | Creational |
-| 🚧 | 7 | **Singleton** | *In Progress* | Creational |
+| ✅ | 7 | **Singleton** | Singleton Variations | Creational |
 
 ---
 
@@ -39,4 +39,5 @@ Each folder is a self-contained module. To explore a pattern, navigate to its di
 ├── 4_SimpleFactory_Pattern
 ├── 5_Factory_Pattern
 ├── 6_Abstract_Factory
+├── 7_Singleton_Pattern
 └── ...
