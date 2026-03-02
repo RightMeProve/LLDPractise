@@ -14,6 +14,8 @@ I use this table to track which patterns have been successfully implemented and 
 | ✅ | 5 | **Factory Method** | PizzaStore (Regional) | Creational |
 | ✅ | 6 | **Abstract Factory** | PizzaStore (Ingredients) | Creational |
 | ✅ | 7 | **Singleton** | Singleton Variations | Creational |
+| ✅ | 8 | **System Design** | Notification System | LLD Project |
+| ✅ | 9 | **System Design** | Parking Lot | LLD Project |
 
 ---
 
@@ -40,4 +42,6 @@ Each folder is a self-contained module. To explore a pattern, navigate to its di
 ├── 5_Factory_Pattern
 ├── 6_Abstract_Factory
 ├── 7_Singleton_Pattern
+├── Notification_System
+├── ParkingLot
 └── ...
