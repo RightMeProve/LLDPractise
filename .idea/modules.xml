@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/1_Strategy_Pattern/1_Strategy_Pattern.iml" filepath="$PROJECT_DIR$/1_Strategy_Pattern/1_Strategy_Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2_Observer_Pattern/2_Observer_Pattern.iml" filepath="$PROJECT_DIR$/2_Observer_Pattern/2_Observer_Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/3_Decorator_Pattern/3_Decorator_Pattern.iml" filepath="$PROJECT_DIR$/3_Decorator_Pattern/3_Decorator_Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LLDPractise.iml" filepath="$PROJECT_DIR$/LLDPractise.iml" />
+    </modules>
+  </component>
+</project>
