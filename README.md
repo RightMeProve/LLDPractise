@@ -16,6 +16,8 @@ I use this table to track which patterns have been successfully implemented and 
 | ✅ | 7 | **Singleton** | Singleton Variations | Creational |
 | ✅ | 8 | **System Design** | Notification System | LLD Project |
 | ✅ | 9 | **System Design** | Parking Lot | LLD Project |
+| ✅ | 10 | **System Design** | Tic Tac Toe | LLD Project |
+| ✅ | 11 | **System Design** | Elevator System | LLD Project |
 
 ---
 
@@ -44,4 +46,6 @@ Each folder is a self-contained module. To explore a pattern, navigate to its di
 ├── 7_Singleton_Pattern
 ├── Notification_System
 ├── ParkingLot
+├── DesignTicTacToe
+├── DesignElevatorSystem
 └── ...
