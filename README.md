@@ -44,8 +44,8 @@ Each folder is a self-contained module. To explore a pattern, navigate to its di
 ├── 5_Factory_Pattern
 ├── 6_Abstract_Factory
 ├── 7_Singleton_Pattern
-├── Notification_System
-├── ParkingLot
-├── DesignTicTacToe
-├── DesignElevatorSystem
+├── Design-Notification-System
+├── Design-Parking-Lot
+├── Design-Tic-Tac-Toe
+├── Design-Elevator-System
 └── ...
