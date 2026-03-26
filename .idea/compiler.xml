@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Notification_System" />
+        <module name="Desing-Snake-And-Ladder-Game" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Notification_System" target="14" />
+    </bytecodeTargetLevel>
   </component>
 </project>
