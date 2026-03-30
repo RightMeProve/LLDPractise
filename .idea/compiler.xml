@@ -6,7 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Desing-Snake-And-Ladder-Game" />
+        <module name="Design-HashMap" />
+        <module name="Design-Snake-And-Ladder-Game" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
