@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Design-HashMap" />
-        <module name="Design-Snake-And-Ladder-Game" />
+        <module name="9_Proxy_Pattern" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Design-HashMap" target="24" />
+      <module name="Design-Snake-And-Ladder-Game" target="24" />
       <module name="Notification_System" target="14" />
     </bytecodeTargetLevel>
   </component>
