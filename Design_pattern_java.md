@@ -457,13 +457,14 @@ For simple Builder implementations, a Director is often unnecessary.
 
 # Builder vs Decorator
 
-| Builder | Decorator |
-|---|---|
-| Creational Design Pattern | Structural Design Pattern |
-| Focuses on creating an object | Focuses on adding behavior/responsibility |
-| Configures object properties | Combines additional behaviors |
-| Used during object construction | Can be applied dynamically at runtime |
-| Example: `StudentBuilder` | Example: `CheeseDecorator` |
+
+| Builder                         | Decorator                                 |
+| ------------------------------- | ----------------------------------------- |
+| Creational Design Pattern       | Structural Design Pattern                 |
+| Focuses on creating an object   | Focuses on adding behavior/responsibility |
+| Configures object properties    | Combines additional behaviors             |
+| Used during object construction | Can be applied dynamically at runtime     |
+| Example:`StudentBuilder`        | Example:`CheeseDecorator`                 |
 
 ### Easy Way to Remember
 
@@ -780,13 +781,211 @@ Both objects belong to the Windows family.
 
 ---
 
+# 7. Chain of Responsibility Pattern
+
+## Problem Statement
+
+Suppose we have a request that can be handled by **one of many possible handlers**.
+
+We don't know beforehand which handler will be able to handle the request.
+
+For example, imagine an expense approval system:
+
+```text
+Manager → Director → VP → CEO
+```
+
+Depending on the amount:
+
+- Manager can approve small expenses
+- Director can approve larger expenses
+- VP can approve even larger expenses
+- CEO can approve the highest amounts
+
+Instead of writing a large chain of `if-else` statements:
+
+```java
+if (amount <= 1000) {
+    manager.approve();
+}
+else if (amount <= 10000) {
+    director.approve();
+}
+else if (amount <= 100000) {
+    vp.approve();
+}
+else {
+    ceo.approve();
+}
+```
+
+we can pass the request through a **chain of handlers**.
+
+Each handler gets an opportunity to handle the request.
+
+If it cannot handle it, it delegates the request to the next handler.
+
+## Solution
+
+Create a common `Processor`/`Handler` interface or abstract class.
+
+Each handler contains a reference to the **next handler**.
+
+```text
+Request
+   ↓
+Handler 1
+   ↓
+Handler 2
+   ↓
+Handler 3
+   ↓
+Handler 4
+```
+
+Each handler follows the same basic logic:
+
+```text
+Can I handle this request?
+       |
+   ┌───┴───┐
+   ↓       ↓
+  YES      NO
+   ↓       ↓
+Handle   Pass to next
+```
+
+For example:
+
+```java
+abstract class ExpenseHandler {
+
+    protected ExpenseHandler next;
+
+    public void setNext(ExpenseHandler next) {
+        this.next = next;
+    }
+
+    public abstract void handle(double amount);
+}
+```
+
+Different handlers can implement their own conditions:
+
+```java
+class Manager extends ExpenseHandler {
+
+    @Override
+    public void handle(double amount) {
+
+        if (amount <= 1000) {
+            System.out.println("Manager approved");
+        }
+        else if (next != null) {
+            next.handle(amount);
+        }
+    }
+}
+```
+
+Another handler:
+
+```java
+class Director extends ExpenseHandler {
+
+    @Override
+    public void handle(double amount) {
+
+        if (amount <= 10000) {
+            System.out.println("Director approved");
+        }
+        else if (next != null) {
+            next.handle(amount);
+        }
+    }
+}
+```
+
+The client constructs the chain:
+
+```java
+ExpenseHandler manager = new Manager();
+ExpenseHandler director = new Director();
+ExpenseHandler vp = new VP();
+ExpenseHandler ceo = new CEO();
+
+manager.setNext(director);
+director.setNext(vp);
+vp.setNext(ceo);
+```
+
+Now the client only needs to send the request to the first handler:
+
+```java
+manager.handle(5000);
+```
+
+The request flows through the chain:
+
+```text
+Request: ₹5000
+       ↓
+   Manager
+       ↓
+   Director
+       ↓
+     VP
+```
+
+The Director handles it because the amount is within its limit.
+
+The client doesn't need to know which handler will ultimately handle the request.
+
+## Key Idea
+
+> Pass a request through a chain of handlers, where each handler can either handle the request or delegate it to the next handler.
+
+### Important Characteristics
+
+- The sender doesn't need to know which handler will process the request.
+- Each handler decides whether to handle or forward the request.
+- The chain can be changed by adding, removing, or reordering handlers.
+- It helps avoid large `if-else` or `switch` statements in the client.
+
+### Easy Way to Remember
+
+> **"Try me. If I can't handle it, I'll pass it to the next person."**
+
+```text
+Client
+  ↓
+Handler 1 → Handler 2 → Handler 3 → Handler 4
+   ↓            ↓           ↓           ↓
+ Can't        Can't       Can          ...
+ handle       handle      handle
+```
+
+## Real-World Examples
+
+Common use cases include:
+
+- Approval systems
+- Logging systems
+- Exception/error handling
+- Authentication/authorization pipelines
+- Request processing pipelines
+- Middleware chains
+- Servlet filters
+- Customer support escalation systems
+
 # Factory vs Abstract Factory vs Builder
 
-| Pattern | Main Question |
-|---|---|
-| **Factory** | Which object should I create? |
-| **Abstract Factory** | Which family of related objects should I create? |
-| **Builder** | How should I construct/configure this complex object? |
+
+| Pattern              | Main Question                                         |
+| -------------------- | ----------------------------------------------------- |
+| **Factory**          | Which object should I create?                         |
+| **Abstract Factory** | Which family of related objects should I create?      |
+| **Builder**          | How should I construct/configure this complex object? |
 
 ### Factory
 
